@@ -1,17 +1,17 @@
 #! /bin/bash
 
 function search_file {
-    temp_fi=$1
-    temp_fo=$2
+    temp_file=$1
+    temp_folder=$2
 
-    for f in $temp_fo/*; do
+    for f in $temp_folder/*; do
         if [ -d $f ]; then
-            search_file $temp_fi $f
+            search_file $temp_file $f
         fi
         file_name=$(basename $f)
-        if [ $file_name == $temp_fi ]; then
+        if [ $file_name == $temp_file ]; then
             echo "File exists"
-            echo "$temp_fo/$temp_fi"
+            echo "$temp_folder/$temp_file"
             exit 1
         fi
     done
